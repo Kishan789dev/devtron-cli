@@ -51,6 +51,3 @@ const ADD_ENVIRONMENT = "orchestrator/env"
 const MIGRATE_CHART_STORE_APP = "orchestrator/app-store/installed-app/migrate"
 
 const TRIGGER_CHART_STORE_APP = "orchestrator/app-store/installed-app/trigger"
-
-// policies
-const POLICY = "/orchestrator/artifact-promotion/policy"

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: artifactPromotionPolicy
+spec:
+  payload:
+    applicationEnvironments:
+      - appName: "testing_dev35",
+        envName: "devtron-demo"
+
+    applyToPolicyName: "rahul"
+    appEnvPolicyListFilter:
+      appNames:
+      envNames:
+      policyNames:
+
+

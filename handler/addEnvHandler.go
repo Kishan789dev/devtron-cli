@@ -5,6 +5,7 @@ import (
 	"github.com/devtron-labs/devtron-cli/devtctl/client/models"
 	"github.com/devtron-labs/devtron-cli/devtctl/controller"
 	"github.com/devtron-labs/devtron-cli/devtctl/handler/utils"
+	"github.com/spf13/viper"
 	"gopkg.in/go-playground/validator.v9"
 	"gopkg.in/yaml.v2"
 )
@@ -12,7 +13,7 @@ import (
 func HandleAddEnv() {
 
 	var envJson models.EnvConfig
-	envJson, err := utils.ReadInputFile(envJson)
+	envJson, err := utils.ReadInputFile(envJson, viper.GetString("path"))
 	if err != nil {
 		return
 	}

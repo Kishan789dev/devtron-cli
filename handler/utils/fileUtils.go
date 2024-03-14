@@ -6,16 +6,18 @@ import (
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v2"
 	"os"
+	"strings"
 )
 
-func ReadInputFile[T any](manifest T) (T, error) {
+func ReadInputFile[T any](manifest T, pathVar string) (T, error) {
 	// Open YAML file
-
-	yamlFile, err := os.Open(viper.GetString("path"))
+	pathVar = viper.GetString(pathVar)
+	yamlFile, err := os.Open(pathVar)
 	if err != nil {
 		fmt.Println("file not found", err)
 		return manifest, err
 	}
+
 	defer yamlFile.Close()
 
 	// Decode YAML file to struct
@@ -29,9 +31,9 @@ func ReadInputFile[T any](manifest T) (T, error) {
 	return manifest, nil
 }
 
-func ReadInputFileJson[T any](response T) (T, error) {
+func ReadInputFileJson[T any](response T, pathVar string) (T, error) {
 
-	contents, err := os.ReadFile(viper.GetString("path"))
+	contents, err := os.ReadFile(pathVar)
 	if err != nil {
 		return response, fmt.Errorf("file not found %s", err)
 	}
@@ -92,4 +94,22 @@ func WriteOutputToFileInJson[T any](outputStruct T) error {
 	}
 	fmt.Println("Manifest downloaded successfully! ")
 	return nil
+}
+
+func SplitAndTrim(input string) []string {
+
+	if !strings.Contains(input, ",") {
+		return strings.Fields(input)
+	}
+
+	splitStrings := strings.Split(input, ",")
+	finalSplitStrings := make([]string, 0)
+
+	for _, str := range splitStrings {
+		value := strings.TrimSpace(str)
+		if value != "" {
+			finalSplitStrings = append(finalSplitStrings, value)
+		}
+	}
+	return finalSplitStrings
 }

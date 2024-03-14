@@ -16,7 +16,7 @@ import (
 func HandleCdApply() {
 
 	var cdJson models.CDPayload
-	cdJson, err := utils.ReadInputFile(cdJson)
+	cdJson, err := utils.ReadInputFile(cdJson, "path")
 	if err != nil {
 		return
 	}
@@ -39,9 +39,9 @@ func HandleCdApply() {
 }
 func HandleCdPatch() {
 	var cdPipelineManifest cd_pipeline.CPipelineManifest
-	cdPipelineManifest, err := utils.ReadInputFile(cdPipelineManifest)
+	cdPipelineManifest, err := utils.ReadInputFile(cdPipelineManifest, "path")
 	if err != nil {
-		cdPipelineManifest, err = utils.ReadInputFileJson(cdPipelineManifest)
+		cdPipelineManifest, err = utils.ReadInputFileJson(cdPipelineManifest, "path")
 		if err != nil {
 			fmt.Print("Bad input file", err)
 			return
@@ -84,9 +84,9 @@ func HandleGetCd() {
 		}
 	} else {
 
-		cdPipelineManifest, err = utils.ReadInputFile(cdPipelineManifest)
+		cdPipelineManifest, err = utils.ReadInputFile(cdPipelineManifest, "path")
 		if err != nil {
-			cdPipelineManifest, err = utils.ReadInputFileJson(cdPipelineManifest)
+			cdPipelineManifest, err = utils.ReadInputFileJson(cdPipelineManifest, "path")
 			if err != nil {
 				fmt.Print("Bad input file", err)
 				return
@@ -140,10 +140,10 @@ func getManifestForFlagInputForCd() (cd_pipeline.CPipelineManifest, error) {
 	appIds := make([]int, 0)
 	pipelineIds := make([]int, 0)
 
-	appIdsString := splitAndTrim(viper.GetString("appIdsCD"))
-	appNames := splitAndTrim(viper.GetString("appNamesCD"))
-	envNames := splitAndTrim(viper.GetString("envNamesCD"))
-	projectNames := splitAndTrim(viper.GetString("projectNamesCD"))
+	appIdsString := utils.SplitAndTrim(viper.GetString("appIdsCD"))
+	appNames := utils.SplitAndTrim(viper.GetString("appNamesCD"))
+	envNames := utils.SplitAndTrim(viper.GetString("envNamesCD"))
+	projectNames := utils.SplitAndTrim(viper.GetString("projectNamesCD"))
 
 	for i, _ := range appIdsString {
 		num, err := strconv.Atoi(appIdsString[i])

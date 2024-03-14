@@ -9,7 +9,6 @@ import (
 	"golang.org/x/exp/slices"
 	"os"
 	"regexp"
-	//"slices"
 	"strings"
 )
 
@@ -73,12 +72,12 @@ func getPrePostConfigManifest(ciPayload ci_pipeline.CPipelineManifest) (ci_pipel
 				if len(preBuildStage.Steps) == 0 && len(postBuildStage.Steps) == 0 {
 					continue
 				}
-				//if len(preBuildStage.Steps) > 0 {
-				//	ciPayload.PreCiStage = preBuildStage
-				//}
-				//if len(postBuildStage.Steps) > 0 {
-				//	ciPayload.PostCiStage = postBuildStage
-				//}
+				if len(preBuildStage.Steps) > 0 {
+					ciPayload.PreCiStage = preBuildStage
+				}
+				if len(postBuildStage.Steps) > 0 {
+					ciPayload.PostCiStage = postBuildStage
+				}
 				ciPipelineManifest.Spec.Payload = append(ciPipelineManifest.Spec.Payload, ciPayload)
 			}
 		}

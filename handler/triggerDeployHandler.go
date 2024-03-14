@@ -14,7 +14,7 @@ import (
 
 func HandleTriggerDeploy() {
 	var payload models.DeploymentAppTypeChangeRequest
-	payload, err := utils.ReadInputFile(payload)
+	payload, err := utils.ReadInputFile(payload, "path")
 	if err != nil {
 		return
 	}

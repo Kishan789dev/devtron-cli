@@ -8,7 +8,6 @@ import (
 	"github.com/spf13/viper"
 	"gopkg.in/go-playground/validator.v9"
 	"strconv"
-	"strings"
 )
 
 func HandleGetCi() {
@@ -23,9 +22,9 @@ func HandleGetCi() {
 		}
 	} else {
 
-		ciPipelineManifest, err = utils.ReadInputFile(ciPipelineManifest)
+		ciPipelineManifest, err = utils.ReadInputFile(ciPipelineManifest, "path")
 		if err != nil {
-			ciPipelineManifest, err = utils.ReadInputFileJson(ciPipelineManifest)
+			ciPipelineManifest, err = utils.ReadInputFileJson(ciPipelineManifest, "path")
 			if err != nil {
 				fmt.Print("Bad input file", err)
 				return
@@ -74,24 +73,6 @@ func writeManifestToFile(manifest cipipeline.CPipelineManifest) {
 	}
 }
 
-func splitAndTrim(input string) []string {
-
-	if !strings.Contains(input, ",") {
-		return strings.Fields(input)
-	}
-
-	splitStrings := strings.Split(input, ",")
-	finalSplitStrings := make([]string, 0)
-
-	for _, str := range splitStrings {
-		value := strings.TrimSpace(str)
-		if value != "" {
-			finalSplitStrings = append(finalSplitStrings, value)
-		}
-	}
-	return finalSplitStrings
-}
-
 func getManifestForFlagInput() (cipipeline.CPipelineManifest, error) {
 
 	appIds := make([]int, 0)
@@ -103,11 +84,11 @@ func getManifestForFlagInput() (cipipeline.CPipelineManifest, error) {
 	//projectNames := strings.Fields(viper.GetString("projectNames"))
 	//pipelineIdsString := strings.Fields(viper.GetString("pipelineIds"))
 
-	appIdsString := splitAndTrim(viper.GetString("appIds"))
-	appNames := splitAndTrim(viper.GetString("appNames"))
-	envNames := splitAndTrim(viper.GetString("envNames"))
-	projectNames := splitAndTrim(viper.GetString("projectNames"))
-	pipelineIdsString := splitAndTrim(viper.GetString("pipelineIds"))
+	appIdsString := utils.SplitAndTrim(viper.GetString("appIds"))
+	appNames := utils.SplitAndTrim(viper.GetString("appNames"))
+	envNames := utils.SplitAndTrim(viper.GetString("envNames"))
+	projectNames := utils.SplitAndTrim(viper.GetString("projectNames"))
+	pipelineIdsString := utils.SplitAndTrim(viper.GetString("pipelineIds"))
 
 	for i, _ := range appIdsString {
 		num, err := strconv.Atoi(appIdsString[i])

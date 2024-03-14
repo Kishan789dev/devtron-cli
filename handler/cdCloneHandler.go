@@ -12,7 +12,7 @@ import (
 func HandleCdClone() {
 
 	var cdJson models.CDClonePayload
-	cdJson, err := utils.ReadInputFile(cdJson)
+	cdJson, err := utils.ReadInputFile(cdJson, "path")
 	if err != nil {
 		return
 	}

@@ -96,9 +96,3 @@ type CiManifestKind string
 const (
 	CI_PIPELINE_KIND CiManifestKind = "CI"
 )
-
-type ArtifactPromotionPolicy string
-
-const (
-	ARTIFACT_PROMOTION_POLICY ArtifactPromotionPolicy = "artifactPromotionPolicy"
-)

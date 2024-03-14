@@ -63,8 +63,6 @@ func CallPostApi[T, R any](api string, request R, response *T) error {
 		EnableTrace().
 		Post(getServerUrl() + api)
 
-	fmt.Println(getServerUrl())
-
 	if resp.StatusCode() != 200 {
 		err = fmt.Errorf("API %s call failed with reason %s", api, string(resp.Body()))
 	}
@@ -96,6 +94,19 @@ func CallPutApi[T, R any](api string, request R, response *T) error {
 		Put(getServerUrl() + api)
 
 	if resp.StatusCode() != 200 {
+		err = fmt.Errorf("API %s call failed with reason %s", api, string(resp.Body()))
+	}
+	return err
+}
+
+func CallDeleteApi[T any](api string, query map[string]string, response *T) error {
+	resp, err := client.R().
+		SetQueryParams(query).
+		SetResult(response).
+		SetHeader("token", getAuthToken()).
+		EnableTrace().
+		Delete(getServerUrl() + api)
+	if resp.StatusCode() != 204 {
 		err = fmt.Errorf("API %s call failed with reason %s", api, string(resp.Body()))
 	}
 	return err

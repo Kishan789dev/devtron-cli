@@ -1,6 +1,6 @@
 module github.com/devtron-labs/devtron-cli/devtctl
 
-go 1.18
+go 1.19
 
 require (
 	github.com/briandowns/spinner v1.23.0
@@ -10,7 +10,7 @@ require (
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/rodaine/table v1.1.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.15.0
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225
 	gopkg.in/go-playground/validator.v9 v9.31.0

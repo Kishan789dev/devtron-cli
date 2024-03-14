@@ -11,9 +11,9 @@ import (
 func HandleCiApply() {
 
 	var ciPipelineManifest cipipeline.CPipelineManifest
-	ciPipelineManifest, err := utils.ReadInputFile(ciPipelineManifest)
+	ciPipelineManifest, err := utils.ReadInputFile(ciPipelineManifest, "path")
 	if err != nil {
-		ciPipelineManifest, err = utils.ReadInputFileJson(ciPipelineManifest)
+		ciPipelineManifest, err = utils.ReadInputFileJson(ciPipelineManifest, "path")
 		if err != nil {
 			fmt.Print("Bad input file", err)
 			return

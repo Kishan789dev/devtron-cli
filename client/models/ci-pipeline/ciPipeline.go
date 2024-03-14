@@ -15,7 +15,9 @@ type Spec struct {
 }
 
 type Payload struct {
-	Criteria Criteria `yaml:"criteria" json:"criteria" validate:"dive"`
+	Criteria    Criteria      `yaml:"criteria" json:"criteria" validate:"dive"`
+	PreCiStage  PipelineStage `yaml:"preCiStage" json:"preCiStage" validate:"dive"`
+	PostCiStage PipelineStage `yaml:"postCiStage" json:"postCiStage" validate:"dive"`
 }
 type Criteria struct {
 	PipelineIds []int `yaml:"pipelineIds" json:"pipelineIds"`
