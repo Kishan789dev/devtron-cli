@@ -33,7 +33,7 @@ func ReadInputFile[T any](manifest T, pathVar string) (T, error) {
 
 func ReadInputFileJson[T any](response T, pathVar string) (T, error) {
 
-	contents, err := os.ReadFile(pathVar)
+	contents, err := os.ReadFile(viper.GetString(pathVar))
 	if err != nil {
 		return response, fmt.Errorf("file not found %s", err)
 	}

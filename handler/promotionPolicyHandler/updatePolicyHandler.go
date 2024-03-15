@@ -46,8 +46,6 @@ func CreatingPayload() (*ArtifactPromotionPolicy.PayloadPolicyForCreate, string,
 
 	var cond []ArtifactPromotionPolicy.Conditions
 
-	//is the name flag arbitrary ??
-
 	if pass != "" {
 		cond1 := ArtifactPromotionPolicy.Conditions{ConditionType: 1,
 			Expression: pass,

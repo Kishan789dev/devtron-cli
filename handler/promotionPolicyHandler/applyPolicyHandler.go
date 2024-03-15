@@ -21,13 +21,7 @@ func HandlerApplyPolicyHelper(path string) {
 		fmt.Print("Bad input file", err)
 		return
 	}
-	//
-	//validate := validator.New()
-	//err = validate.Struct(applyPolicyManifest)
-	//if err != nil {
-	//	fmt.Print("Invalid configuration", err)
-	//	return
-	//}
+
 	if applyPolicyManifest.ApiVersion != ArtifactPromotionPolicy.VERSION_v1 {
 		fmt.Println("Invalid version provided in manifest, please use v1 ")
 		return

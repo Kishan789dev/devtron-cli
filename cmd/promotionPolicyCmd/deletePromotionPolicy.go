@@ -1,6 +1,5 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package promotionPolicyCmd
 
@@ -13,7 +12,7 @@ import (
 
 // DeletePromotionPolicyCmd represents the deletePromotionPolicy command
 var DeletePromotionPolicyCmd = &cobra.Command{
-	Use:   "PromotionPolicy",
+	Use:   "promotionPolicy",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:

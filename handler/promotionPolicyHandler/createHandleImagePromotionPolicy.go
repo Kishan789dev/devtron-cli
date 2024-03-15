@@ -5,6 +5,7 @@ import (
 	"github.com/devtron-labs/devtron-cli/devtctl/client/models/ArtifactPromotionPolicy"
 	"github.com/devtron-labs/devtron-cli/devtctl/controller/promotionPolicyController"
 	"github.com/spf13/viper"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 func HandleImagePromotionPolicy() {
@@ -13,12 +14,12 @@ func HandleImagePromotionPolicy() {
 		fmt.Println(err)
 		return
 	}
-	//validate := validator.New()
-	//err = validate.Struct(policyManifest)
-	//if err != nil {
-	//	fmt.Print("Invalid configuration", err)
-	//	return
-	//}
+	validate := validator.New()
+	err = validate.Struct(policyManifest)
+	if err != nil {
+		fmt.Print("Invalid configuration", err)
+		return
+	}
 
 	err = promotionPolicyController.DownloadPolicyConfigController(policyManifest)
 	if err != nil {
@@ -26,12 +27,6 @@ func HandleImagePromotionPolicy() {
 		return
 	}
 	fmt.Println("Policy Created Successfully")
-	//
-	//if path == "" {
-	//	return
-	//}
-
-	//apply Policy
 
 	HandlerApplyPolicyHelper("applyPath")
 

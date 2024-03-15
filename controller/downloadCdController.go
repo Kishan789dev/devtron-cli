@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/devtron-labs/devtron-cli/devtctl/client"
 	cd_pipeline "github.com/devtron-labs/devtron-cli/devtctl/client/models/cd-pipeline"
-	"golang.org/x/exp/slices"
 	"os"
+	"slices"
 	"strings"
 )
 

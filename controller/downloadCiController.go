@@ -6,9 +6,9 @@ import (
 	"github.com/devtron-labs/devtron-cli/devtctl/client"
 	"github.com/devtron-labs/devtron-cli/devtctl/client/models"
 	ci_pipeline "github.com/devtron-labs/devtron-cli/devtctl/client/models/ci-pipeline"
-	"golang.org/x/exp/slices"
 	"os"
 	"regexp"
+	"slices"
 	"strings"
 )
 
