@@ -44,8 +44,6 @@ func getDetailsForFlagInput() (*ArtifactPromotionPolicy.PayloadPolicyForCreate, 
 	allowApprovedDeployment := viper.GetBool("allowApproverFromDeployPolicy")
 	var cond []ArtifactPromotionPolicy.Conditions
 
-	//is the name flag arbitrary ??
-
 	if pass != "" {
 		cond1 := ArtifactPromotionPolicy.Conditions{ConditionType: 1,
 			Expression: pass,

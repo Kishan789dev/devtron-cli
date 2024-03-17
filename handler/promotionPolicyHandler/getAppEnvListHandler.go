@@ -2,9 +2,12 @@ package promotionPolicyHandler
 
 import (
 	"fmt"
+	table "github.com/jedib0t/go-pretty/v6/table"
+
 	"github.com/devtron-labs/devtron-cli/devtctl/client/models/ArtifactPromotionPolicy"
 	"github.com/devtron-labs/devtron-cli/devtctl/controller/promotionPolicyController"
 	"github.com/devtron-labs/devtron-cli/devtctl/handler/utils"
+	//"github.com/rodaine/table"
 	"github.com/spf13/viper"
 	"gopkg.in/go-playground/validator.v9"
 	"strconv"
@@ -30,11 +33,22 @@ func HandleGetAppAndEnvList() {
 		fmt.Println(err)
 		return
 	}
-	err = utils.WriteOutputToFileInJson(response)
-	if err != nil {
-		fmt.Println("Error occurred during writing to json")
-		return
+
+	fmt.Println("TotalCount", response.TotalCount)
+
+	t := table.NewWriter()
+	t.SetStyle(table.StyleBold)
+	t.AppendHeader(table.Row{"APP NAMES", "ENV NAMES", "POLICY NAMES"})
+	for _, list := range response.AppEnvironmentPolicyMappings {
+		t.AppendRow(table.Row{list.AppName, list.EnvName, list.PolicyName})
 	}
+	fmt.Println(t.Render())
+
+	//err = utils.WriteOutputToFileInJson(response)
+	//if err != nil {
+	//	fmt.Println("Error occurred during writing to json")
+	//	return
+	//}
 
 }
 func flapInputForAppEnvList() (*ArtifactPromotionPolicy.AppEnvPolicyListFilter, error) {

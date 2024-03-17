@@ -29,9 +29,11 @@ func init() {
 	GetListOfPromotionPoliciesCmd.PersistentFlags().String("search", "", "search")
 	GetListOfPromotionPoliciesCmd.PersistentFlags().String("sortBy", "", "sortBy")
 	GetListOfPromotionPoliciesCmd.PersistentFlags().String("sortOrder", "", "sortOrder")
+	GetListOfPromotionPoliciesCmd.PersistentFlags().String("expand", "", "expanding the rows")
 
 	viper.BindPFlag("searchPolicyList", GetListOfPromotionPoliciesCmd.PersistentFlags().Lookup("search"))
 	viper.BindPFlag("sortByPolicyList", GetListOfPromotionPoliciesCmd.PersistentFlags().Lookup("sortBy"))
 	viper.BindPFlag("sortOrderPolicyList", GetListOfPromotionPoliciesCmd.PersistentFlags().Lookup("sortOrder"))
+	viper.BindPFlag("expand", GetListOfPromotionPoliciesCmd.PersistentFlags().Lookup("expand"))
 
 }

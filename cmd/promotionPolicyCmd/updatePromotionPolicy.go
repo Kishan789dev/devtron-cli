@@ -12,7 +12,7 @@ import (
 
 // UpdatePromotionPolicyCmd represents the updatePromotionPolicy command
 var UpdatePromotionPolicyCmd = &cobra.Command{
-	Use:   "imagePromotionPolicy",
+	Use:   "artifactPromotionPolicy",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:

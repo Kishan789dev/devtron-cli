@@ -1,17 +1,17 @@
 package ArtifactPromotionPolicy
 
 type ApplyPolicyManifest struct {
-	ApiVersion string `yaml:"apiVersion" json:"apiVersion"`
-	Kind       string `yaml:"kind" json:"kind"`
-	Spec       Spec   `yaml:"spec" json:"spec"`
+	ApiVersion string `yaml:"apiVersion" json:"apiVersion" validate:"required"`
+	Kind       string `yaml:"kind" json:"kind" validate:"required"`
+	Spec       Spec   `yaml:"spec" json:"spec" validate:"dive"`
 }
 
 type Spec struct {
-	Payload PayloadApplyPolicy `yaml:"payload" json:"payload"`
+	Payload ApplyPolicy `yaml:"payload" json:"payload" validate:"dive"`
 }
 
-type PayloadApplyPolicy struct {
-	ApplicationEnvironments []PolicyVariables      `yaml:"applicationEnvironments" json:"applicationEnvironments"`
+type ApplyPolicy struct {
+	ApplicationEnvironments []PolicyVariables      `yaml:"applicationEnvironments" json:"applicationEnvironments" validate:"dive"`
 	ApplyToPolicyName       string                 `yaml:"applyToPolicyName" json:"applyToPolicyName"`
 	AppEnvPolicyListFilter  AppEnvPolicyListFilter `yaml:"appEnvPolicyListFilter" json:"appEnvPolicyListFilter"`
 }

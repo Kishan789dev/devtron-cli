@@ -3,13 +3,14 @@ kind: artifactPromotionPolicy
 spec:
   payload:
     applicationEnvironments:
-      - appName: "testing_dev35",
+      - appName: "kishan"
         envName: "devtron-demo"
-
-    applyToPolicyName: "rahul"
+        policyName:
+    applyToPolicyName: "kishan_again"
     appEnvPolicyListFilter:
       appNames:
       envNames:
       policyNames:
+
 
 

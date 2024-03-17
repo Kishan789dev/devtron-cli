@@ -26,6 +26,7 @@ func HandleUpdatePolicy() {
 	err = promotionPolicyController.UpdatePolicyController(payloadForUpdate, PolicyName)
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 	fmt.Println("Updated Successfully")
 
@@ -63,10 +64,10 @@ func CreatingPayload() (*ArtifactPromotionPolicy.PayloadPolicyForCreate, string,
 		cond = append(cond, cond1)
 
 	}
-	if pass == "" && fail == "" {
-		err := fmt.Errorf("missing condition criteria ")
-		return &ArtifactPromotionPolicy.PayloadPolicyForCreate{}, "", err
-	}
+	//if pass == "" && fail == "" {
+	//	err := fmt.Errorf("missing condition criteria ")
+	//	return &ArtifactPromotionPolicy.PayloadPolicyForCreate{}, "", err
+	//}
 
 	approvalmetadata := ArtifactPromotionPolicy.ApprovalMetadata{
 		ApproverCount:                approveCnt,

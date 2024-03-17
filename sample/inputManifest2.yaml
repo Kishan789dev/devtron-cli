@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: CI
-metadata: 
+metadata:
   type: YAML_DOWNLOAD
 spec:
-  payload: 
-  - criteria:
-      pipelineIds:
-       - 22
-       - 23
-      appIds:
-       - 1
-       - 2
-       - 3
-      includesAppNames:
-       - invoicing*
-       - logistics*
-      excludesAppNames:
-       - payment*
+  payload:
+    - criteria:
+        pipelineIds:
+          - 22
+          - 23
+        appIds:
+          - 1
+          - 2
+          - 3
+        includesAppNames:
+          - invoicing*
+          - logistics*
+        excludesAppNames:
+          - payment*

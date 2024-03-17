@@ -27,6 +27,6 @@ to quickly create a Cobra application.`,
 func init() {
 	GetArtifactPromotionPolicyCmd.PersistentFlags().String("name", "", "name of policy")
 
-	viper.BindPFlag("policyName", GetArtifactPromotionPolicyCmd.PersistentFlags().Lookup("name"))
+	viper.BindPFlag("policyNameOfArtifactPromotionPolicy", GetArtifactPromotionPolicyCmd.PersistentFlags().Lookup("name"))
 
 }

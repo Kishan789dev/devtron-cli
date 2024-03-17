@@ -1,11 +1,12 @@
 package ci_pipeline
 
 type CPipelineManifest struct {
-	ApiVersion string   `yaml:"apiVersion" json:"apiVersion" validate:"required"`
+	ApiVersion string   `yaml:"apiVersion" json:"apiVersion"`
 	Kind       string   `yaml:"kind" json:"kind" validate:"required"`
-	Metadata   Metadata `yaml:"metadata" json:"metadata" validate:"required" validate:"dive"`
+	Metadata   Metadata `yaml:"metadata" json:"metadata"  validate:"required" validate:"dive"`
 	Spec       Spec     `yaml:"spec" json:"spec" validate:"required" validate:"dive"`
 }
+
 type Metadata struct {
 	Type ManifestType `yaml:"type" json:"type" validate:"required"`
 }

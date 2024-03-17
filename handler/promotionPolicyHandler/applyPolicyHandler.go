@@ -5,12 +5,10 @@ import (
 	"github.com/devtron-labs/devtron-cli/devtctl/client/models/ArtifactPromotionPolicy"
 	"github.com/devtron-labs/devtron-cli/devtctl/controller/promotionPolicyController"
 	"github.com/devtron-labs/devtron-cli/devtctl/handler/utils"
-	"github.com/spf13/viper"
 )
 
 func HandleApplyPolicy() {
-	path := viper.GetString("path")
-	HandlerApplyPolicyHelper(path)
+	HandlerApplyPolicyHelper("path")
 }
 
 func HandlerApplyPolicyHelper(path string) {

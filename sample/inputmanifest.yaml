@@ -1,5 +1,4 @@
- version
- kind: CI
+kind: CI
 metadata:
   type: YAML_DOWNLOAD
 spec:
