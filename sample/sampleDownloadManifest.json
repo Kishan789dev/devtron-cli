@@ -1,0 +1,261 @@
+{
+    "apiVersion": "v1",
+    "kind": "CI",
+    "metadata": {
+        "type": "JSON_DOWNLOAD"
+    },
+    "spec": {
+        "payload": [
+            {
+                "criteria": {
+                    "pipelineIds": [
+                        1
+                    ],
+                    "appIds": null,
+                    "includesAppNames": null,
+                    "excludesAppNames": null,
+                    "environmentNames": null,
+                    "projectNames": null
+                },
+                "preCiStage": {
+                    "id": 5,
+                    "name": "",
+                    "description": "",
+                    "type": "PRE_CI",
+                    "steps": [
+                        {
+                            "id": 404,
+                            "name": "Task 1",
+                            "description": "sjndcncsjdibnciuspahc;naefiplbuvefwnpivlnefivunwedpjkvnsdapiuvhqpinbv",
+                            "index": 1,
+                            "stepType": "INLINE",
+                            "outputDirectoryPath": [
+                                "/test1",
+                                "/test2"
+                            ],
+                            "inlineStepDetail": {
+                                "scriptType": "SHELL",
+                                "script": "#!/bin/sh \nset -eo pipefail \n#set -v  ## uncomment this to debug the script \necho \"hello world from CLI\"\n",
+                                "storeScriptAt": "",
+                                "dockerfileExists": false,
+                                "mountPath": "",
+                                "mountCodeToContainer": false,
+                                "mountCodeToContainerPath": "",
+                                "mountDirectoryFromHost": false,
+                                "containerImagePath": "",
+                                "imagePullSecretType": "",
+                                "imagePullSecret": "",
+                                "mountPathMap": null,
+                                "commandArgsMap": [
+                                    {
+                                        "command": "",
+                                        "args": null
+                                    }
+                                ],
+                                "portMap": null,
+                                "inputVariables": [
+                                    {
+                                        "id": 1110,
+                                        "name": "test1",
+                                        "format": "STRING",
+                                        "description": "",
+                                        "isExposed": false,
+                                        "allowEmptyValue": false,
+                                        "defaultValue": "",
+                                        "value": "",
+                                        "variableType": "",
+                                        "refVariableStepIndex": 0,
+                                        "refVariableName": "",
+                                        "variableStepIndexInPlugin": 0,
+                                        "refVariableStage": ""
+                                    },
+                                    {
+                                        "id": 1111,
+                                        "name": "test2",
+                                        "format": "STRING",
+                                        "description": "",
+                                        "isExposed": false,
+                                        "allowEmptyValue": false,
+                                        "defaultValue": "",
+                                        "value": "",
+                                        "variableType": "",
+                                        "refVariableStepIndex": 0,
+                                        "refVariableName": "",
+                                        "variableStepIndexInPlugin": 0,
+                                        "refVariableStage": ""
+                                    }
+                                ],
+                                "outputVariables": [
+                                    {
+                                        "id": 1112,
+                                        "name": "test1",
+                                        "format": "STRING",
+                                        "description": "",
+                                        "isExposed": false,
+                                        "allowEmptyValue": false,
+                                        "defaultValue": "",
+                                        "value": "",
+                                        "variableType": "",
+                                        "refVariableStepIndex": 0,
+                                        "refVariableName": "",
+                                        "variableStepIndexInPlugin": 0,
+                                        "refVariableStage": ""
+                                    },
+                                    {
+                                        "id": 1113,
+                                        "name": "test2",
+                                        "format": "STRING",
+                                        "description": "",
+                                        "isExposed": false,
+                                        "allowEmptyValue": false,
+                                        "defaultValue": "",
+                                        "value": "",
+                                        "variableType": "",
+                                        "refVariableStepIndex": 0,
+                                        "refVariableName": "",
+                                        "variableStepIndexInPlugin": 0,
+                                        "refVariableStage": ""
+                                    }
+                                ],
+                                "conditionDetails": [
+                                    {
+                                        "id": 330,
+                                        "conditionOnVariable": "test1",
+                                        "conditionType": "TRIGGER",
+                                        "conditionOperator": "",
+                                        "conditionalValue": "hello"
+                                    },
+                                    {
+                                        "id": 331,
+                                        "conditionOnVariable": "test1",
+                                        "conditionType": "PASS",
+                                        "conditionOperator": "",
+                                        "conditionalValue": "test1"
+                                    }
+                                ]
+                            },
+                            "pluginRefStepDetail": {
+                                "pluginId": 0,
+                                "inputVariables": null,
+                                "outputVariables": null,
+                                "conditionDetails": null
+                            },
+                            "triggerIfParentStageFail": false
+                        },
+                        {
+                            "id": 405,
+                            "name": "Task 2",
+                            "description": "",
+                            "index": 2,
+                            "stepType": "INLINE",
+                            "outputDirectoryPath": [
+                                "test",
+                                "test1"
+                            ],
+                            "inlineStepDetail": {
+                                "scriptType": "CONTAINER_IMAGE",
+                                "script": "echo \"hello from inside CLI:)\"",
+                                "storeScriptAt": "/test1",
+                                "dockerfileExists": false,
+                                "mountPath": "",
+                                "mountCodeToContainer": true,
+                                "mountCodeToContainerPath": "/sourcecode",
+                                "mountDirectoryFromHost": true,
+                                "containerImagePath": "alpine:latest",
+                                "imagePullSecretType": "",
+                                "imagePullSecret": "",
+                                "mountPathMap": [
+                                    {
+                                        "filePathOnDisk": "/tst",
+                                        "filePathOnContainer": "/tst"
+                                    }
+                                ],
+                                "commandArgsMap": [
+                                    {
+                                        "command": "echo",
+                                        "args": [
+                                            "naame"
+                                        ]
+                                    }
+                                ],
+                                "portMap": [
+                                    {
+                                        "portOnLocal": 2020,
+                                        "portOnContainer": 80
+                                    }
+                                ],
+                                "inputVariables": [
+                                    {
+                                        "id": 1114,
+                                        "name": "test1",
+                                        "format": "STRING",
+                                        "description": "",
+                                        "isExposed": false,
+                                        "allowEmptyValue": false,
+                                        "defaultValue": "",
+                                        "value": "",
+                                        "variableType": "",
+                                        "refVariableStepIndex": 0,
+                                        "refVariableName": "",
+                                        "variableStepIndexInPlugin": 0,
+                                        "refVariableStage": ""
+                                    }
+                                ],
+                                "outputVariables": null,
+                                "conditionDetails": null
+                            },
+                            "pluginRefStepDetail": {
+                                "pluginId": 0,
+                                "inputVariables": null,
+                                "outputVariables": null,
+                                "conditionDetails": null
+                            },
+                            "triggerIfParentStageFail": false
+                        },
+                        {
+                            "id": 406,
+                            "name": "K6 Load testing",
+                            "description": "K6 is an open-source tool and cloud service that makes load testing easy for developers and QA engineers.",
+                            "index": 3,
+                            "stepType": "REF_PLUGIN",
+                            "outputDirectoryPath": null,
+                            "inlineStepDetail": {
+                                "scriptType": "",
+                                "script": "",
+                                "storeScriptAt": "",
+                                "dockerfileExists": false,
+                                "mountPath": "",
+                                "mountCodeToContainer": false,
+                                "mountCodeToContainerPath": "",
+                                "mountDirectoryFromHost": false,
+                                "containerImagePath": "",
+                                "imagePullSecretType": "",
+                                "imagePullSecret": "",
+                                "mountPathMap": null,
+                                "commandArgsMap": null,
+                                "portMap": null,
+                                "inputVariables": null,
+                                "outputVariables": null,
+                                "conditionDetails": null
+                            },
+                            "pluginRefStepDetail": {
+                                "pluginId": 0,
+                                "inputVariables": null,
+                                "outputVariables": null,
+                                "conditionDetails": null
+                            },
+                            "triggerIfParentStageFail": false
+                        }
+                    ]
+                },
+                "postCiStage": {
+                    "id": 0,
+                    "name": "",
+                    "description": "",
+                    "type": "",
+                    "steps": null
+                }
+            }
+        ]
+    }
+}

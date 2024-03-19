@@ -1,0 +1,18 @@
+kind: CI
+metadata:
+  type: YAML_DOWNLOAD
+spec:
+  payload:
+    - criteria:
+        pipelineIds:
+          - 1
+        appIds:
+          -
+        includesAppNames:
+          -
+        excludesAppNames:
+          -
+        environmentNames:
+          -
+        projectNames:
+          -

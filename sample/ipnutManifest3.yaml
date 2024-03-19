@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: CI
+metadata: 
+  type: YAML_DOWNLOAD
+spec:
+  payload: 
+  - criteria:
+      pipelineIds:
+       -
+      appIds:
+       - 
+      includesAppNames:
+       - invoicing*
+       - logistics*
+      excludesAppNames:
+       - payment*
+      environmentNames:
+       - devtron-demo
+      projectNames:
+       - marketing
