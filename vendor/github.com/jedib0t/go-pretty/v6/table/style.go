@@ -673,7 +673,6 @@ type FormatOptions struct {
 	Footer    text.Format    // footer row(s) text format
 	Header    text.Format    // header row(s) text format
 	Row       text.Format    // (data) row(s) text format
-	WordWrap  bool
 }
 
 // FormatOptionsDefault defines sensible formatting options.
