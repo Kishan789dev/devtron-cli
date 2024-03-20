@@ -9,25 +9,10 @@ import (
 	"gopkg.in/go-playground/validator.v9"
 )
 
-func HandleListOfPolicies() {
-	payloadForListOfPolices := flagInputForListOfPolicies()
-
-	validate := validator.New()
-	err := validate.Struct(payloadForListOfPolices)
-	if err != nil {
-		fmt.Print("Invalid configuration", err)
-		return
-	}
-
-	response, err := promotionPolicyController.GetPoliciesList(payloadForListOfPolices)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
+func DisplayTable(allowExpand bool, response []ArtifactPromotionPolicy.PayloadPolicyForCreate) {
 	t1 := table.NewWriter()
 	t1.SetStyle(table.StyleBold)
-	if payloadForListOfPolices.Expand == true {
+	if allowExpand == true {
 
 		t1.AppendHeader(table.Row{"Name", "Description", "Pass Condition", "Fail_Condition", "ApproverCount", "ImageBuilderApprove", "RequesterApprove", "ApproverDeploy"})
 		for _, list := range response {
@@ -59,19 +44,37 @@ func HandleListOfPolicies() {
 
 	}
 	fmt.Println(t1.Render())
+}
+
+func HandleListOfPolicies() {
+	payloadForListOfPolices := flagInputForListOfPolicies()
+
+	validate := validator.New()
+	err := validate.Struct(payloadForListOfPolices)
+	if err != nil {
+		fmt.Print("Invalid configuration", err)
+		return
+	}
+
+	response, err := promotionPolicyController.GetPoliciesList(payloadForListOfPolices)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	DisplayTable(payloadForListOfPolices.Expand, response)
 
 }
 func flagInputForListOfPolicies() *ArtifactPromotionPolicy.PoliciesList {
 	search := viper.GetString("searchPolicyList")
 	sortBy := viper.GetString("sortByPolicyList")
 	sortOrder := viper.GetString("sortOrderPolicyList")
-	expand := viper.GetBool("expand")
+	isExpand := viper.GetBool("expand")
 
 	ParamsManifest := &ArtifactPromotionPolicy.PoliciesList{
 		Search:    search,
 		SortBy:    sortBy,
 		SortOrder: sortOrder,
-		Expand:    expand,
+		Expand:    isExpand,
 	}
 	return ParamsManifest
 

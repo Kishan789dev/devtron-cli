@@ -14,6 +14,15 @@ builds:
       - windows
       - darwin
     binary: devtctl
+nfpms:
+  - package_name: Cli-Devtron
+    homepage: https://github.com/Kishan789dev/Cli-Devtron.git
+    maintainer: Devtron.ai
+    description: |-
+      Dealing with the apis available for Devtron Users
+    formats:
+      - rpm
+      - deb
 sboms:
   - artifacts: archive
 

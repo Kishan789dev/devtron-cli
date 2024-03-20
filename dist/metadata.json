@@ -1,1 +1,1 @@
-{"project_name":"devtron-cli","tag":"v0.0.0","previous_tag":"","version":"0.0.1-next","commit":"465bbf0adec43da76f00f89e242386f78e51fb55","date":"2024-03-20T02:31:12.712362668+05:30","runtime":{"goos":"linux","goarch":"amd64"}}
+{"project_name":"devtron-cli","tag":"v0.1.0","previous_tag":"","version":"0.1.1-next","commit":"c7f9eb85465849f1707faacd1ce0cc18171c5005","date":"2024-03-20T02:44:41.579266466+05:30","runtime":{"goos":"linux","goarch":"amd64"}}

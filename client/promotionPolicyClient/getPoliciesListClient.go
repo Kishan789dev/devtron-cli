@@ -12,5 +12,4 @@ func GetListOfPolicies(params *ArtifactPromotionPolicy.PoliciesList) ([]Artifact
 	query := map[string]string{"search": params.Search, "sortBy": params.SortBy, "sortOrder": params.SortOrder}
 	err := client.CallGetApi(POLICY, query, &response)
 	return response.Result, err
-
 }
